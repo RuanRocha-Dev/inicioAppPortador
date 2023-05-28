@@ -1,0 +1,19 @@
+.containerItemMenu {
+    width: clamp(60px, 60px, 60px);
+    height: clamp(60px, 60px, 60px);
+    display: flex;
+    border-radius: 50%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.iconItemMenu {
+    color: var(--corSecundaria);
+    font-size: 1.2em;
+}
+
+.spanItemMenu {
+    color: var(--corSecundaria);
+    font-size: .8em;
+}

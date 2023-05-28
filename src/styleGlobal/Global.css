@@ -1,0 +1,20 @@
+:root {
+    --corPrimaria: #0B305C;
+    --corSecundaria: #EB6C10;
+    --corTexto: #fff;
+    --corIcone: ##ccc;
+    --corBackgroundPage: #c0bdbd;
+    --corBackgroundHeader: #FFF;
+    }
+
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    position: relative;
+}

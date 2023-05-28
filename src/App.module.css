@@ -1,0 +1,6 @@
+.containerOutlet {
+    width: clamp(100vw, 100vw, 100vw);
+    height: clamp(100vh, 100vh, 100vh);
+    padding: 50px 0;
+    background-color: var(--corBackgroundPage);
+}
