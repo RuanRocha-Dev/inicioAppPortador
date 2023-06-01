@@ -26,6 +26,10 @@
     font-size: 2.7em;
 }
 
+.containerIcone img {
+    height: clamp(100%, 100%, 100%);
+}
+
 .containerSpan {
     width: clamp(100%, 100%, 100%);
     height: clamp(28%, 28%, 28%);
