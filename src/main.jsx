@@ -6,12 +6,14 @@ import App from './App.jsx'
 import { Home } from './pages/home/Home.jsx';
 import { CartaoVirtual } from './pages/cartaoVirtual/CartaoVirtual';
 import { Carteira } from './pages/carteira/Carteira';
+import { LoginApp } from './pages/login/loginApp/LoginApp.jsx';
 
 const routers = createBrowserRouter([
   { path: '/', 
     element: <App />,
     children: [
-      { path: '/', element: <Home /> },
+      { path: '/', element: <LoginApp /> },
+      { path: '/home', element: <Home /> },
       { path: '/cartao-virtual', element: <CartaoVirtual /> },
       { path: '/carteira', element: <Carteira /> }
     ] 

@@ -1,5 +1,5 @@
 import style from './MenuBottomHome.module.css';
-import { ItensMenuBottomHome } from '../itensMenuBottomHome/ItensMenuBottomHome';
+import { ItensMenuBottomHome } from './itensMenuBottomHome/ItensMenuBottomHome';
 // import { SideBar } from '../sideBar/SideBar';
 
 export function MenuBottomHome () {
@@ -25,7 +25,7 @@ export function MenuBottomHome () {
 
     return (
         <footer className={style.containerMenuFooter }>
-            <ItensMenuBottomHome textSpan="Inicio" nameIcon="fa-solid fa-house" toLink='/' />
+            <ItensMenuBottomHome textSpan="Inicio" nameIcon="fa-solid fa-house" toLink='/home' />
             <ItensMenuBottomHome textSpan="C.Virtual" nameIcon="fa-solid fa-credit-card" toLink='/cartao-virtual' />
             <ItensMenuBottomHome textSpan="" nameIcon="fa-solid fa-qrcode" estilo={styleBtnQrCode} estiloIconAndLabel={styleCorIconeAndLabel}  />
             <ItensMenuBottomHome textSpan="Carteira" nameIcon="fa-solid fa-wallet" toLink='/carteira' />

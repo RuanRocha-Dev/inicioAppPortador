@@ -1,0 +1,58 @@
+.container {
+    width: 100%;
+    height: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.container input {
+    width: 100%;
+    height: 100%;
+    color: var(--corTexto);
+    background-color: transparent;
+    padding-top: 20px;
+    border: none;
+    outline: none;
+}
+
+.container label {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    pointer-events: none;
+    color: var(--corTexto);
+    border-bottom: 1px solid var(--corTexto);
+}
+
+.container label::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    bottom: -1px;
+    border-bottom: 3px solid var(--corSecundaria);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.contentName {
+    position: absolute;
+    left: 0px;
+    bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+.container input:focus + .labelName .contentName,
+.container input:valid + .labelName .contentName {
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: var(--active-color);
+}
+
+.container input:focus + .labelName::after,
+.container input:valid + .labelName::after {
+    transform: translateX(0%);
+}

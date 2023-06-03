@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import style from './Home.module.css';
-import { BtnHome } from '../../components/btnHome/BtnHome';
+import { BtnHome } from '../../components/botoes/btnHome/BtnHome';
 
 export function Home () {
 

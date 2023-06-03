@@ -1,5 +1,5 @@
 import style from './SideBar.module.css';
-import { ItensMenuSideBar } from '../itensMenuSideBar/ItensMenuSideBar'
+import { ItensMenuSideBar } from './itensMenuSideBar/ItensMenuSideBar'
 
 export function SideBar () {
     return (
@@ -9,11 +9,11 @@ export function SideBar () {
                 <p> Jhon Lennon </p>
             </div>
             <ul>
-                <ItensMenuSideBar nomeMenu="Perfil" nomeICone="fa-solid fa-user" />
-                <ItensMenuSideBar nomeMenu="Notificações" nomeICone="fa-solid fa-bell" />
-                <ItensMenuSideBar nomeMenu="Termos" nomeICone="fa-solid fa-file" />
-                <ItensMenuSideBar nomeMenu="Nosso Whatsapp" nomeICone="fa-brands fa-whatsapp" />
-                <ItensMenuSideBar nomeMenu="Sair do Aplicativo" nomeICone="fa-solid fa-arrow-right-from-bracket" />
+                <ItensMenuSideBar nomeMenu="Perfil" nomeICone="fa-solid fa-user" toLink="home" />
+                <ItensMenuSideBar nomeMenu="Notificações" nomeICone="fa-solid fa-bell" toLink="carteira" />
+                <ItensMenuSideBar nomeMenu="Termos" nomeICone="fa-solid fa-file" toLink="/cartao-virtual" />
+                <ItensMenuSideBar nomeMenu="Nosso Whatsapp" nomeICone="fa-brands fa-whatsapp" toLink="/home" />
+                <ItensMenuSideBar nomeMenu="Sair do Aplicativo" nomeICone="fa-solid fa-arrow-right-from-bracket" toLink="/" />
             </ul>
             <footer>
                 <i className='fa-solid fa-rotate'></i>
