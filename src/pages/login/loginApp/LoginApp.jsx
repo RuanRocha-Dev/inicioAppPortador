@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { InputCpf } from "../../../components/inputs/inputCpf/InputCpf";
 import { InputSenhaComplexa } from '../../../components/inputs/inputSenhaComplexa/InputSenhaComplexa';
@@ -7,15 +8,35 @@ import { BtnSubmitForm } from '../../../components/botoes/btnSubmitForm/BtnSubmi
 import style from './LoginApp.module.css';
 
 export function LoginApp () {
-    let [cpf, setCpf] = useState('');
+    const navigateTo = useNavigate();
+    let cpf = '';
+    let senha = '';
 
-    function getValue(el) {
+    function getValueCpf (el) {
         cpf = el.target.value;
     }
+    
+    function getValueSenha (el) {
+        senha = el.target.value;
+    }
 
+    function verifica (el) {
+        let btn = el.target;
+        const cfpLogin = '10186444907';
+        const senhaLogin = '#Oloko123';
 
-    function verifica () {
-        console.log(validarCPF(cpf))
+        if(cpf == cfpLogin && senha == senhaLogin ) {
+            navigateTo('/home');
+        } else {
+            btn.style.border = '2px solid red';
+            btn.disabled = 'disabled';
+            
+            setTimeout(() => {
+                btn.style.border = '';
+                btn.disabled = '';
+            }, 2000);
+        }
+        
     }
 
     return (
@@ -25,17 +46,17 @@ export function LoginApp () {
                     <img src="https://www.zaztech.com.br/wp-content/uploads/2022/09/Sem-Titulo-1-1.png" />
                 </div>
                 <div className={style.boxFormLogin}>
-                    <InputCpf functionChange={getValue}/>
-                    <InputSenhaComplexa />
-                    <BtnSubmitForm tituloBtn="LOGAR"/>
-                    <BtnSubmitForm tituloBtn="CADASTRE-SE" functionOnclick={verifica} />
-                    {/* <Link to="/home"> <input type="button" value="LOGAR" /> </Link> */}
+                    <InputCpf functionChange={getValueCpf}/>
+                    <InputSenhaComplexa functionChange={getValueSenha} />
+                    <BtnSubmitForm tituloBtn="LOGAR" functionOnclick={verifica} />
+                    <BtnSubmitForm tituloBtn="CADASTRE-SE" />
                 </div>
             </div>
-
             <div className={style.boxImgBackground}>
-                <img src="https://i0.wp.com/techwek.com/wp-content/uploads/2021/12/fotos-de-papel-de-parede-para-celular-masculino-3d.png?fit=512%2C1024&ssl=1" alt="" />
+                <img src="https://i.pinimg.com/236x/da/9a/56/da9a5680ca2741b1c06817b7ed785f1f.jpg" alt="" />
             </div>
+
+
         </div>
     )
 }

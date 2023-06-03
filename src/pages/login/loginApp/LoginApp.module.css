@@ -1,6 +1,6 @@
 .containerLogin {
-    width: 100%;
-    height: 100%;
+    width: clamp(100%, 100%, 100%);
+    height: clamp(100%, 100%, 100%);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -11,7 +11,7 @@
 
 .containerLogoAndInputs {
     width: 80vw;
-    height: 60vh;
+    height: 75vh;
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
@@ -32,11 +32,16 @@
 
 .boxFormLogin {
     width: 100%;
-    height: 55%;
+    height: 65%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    /* background-color: aquamarine; */
+}
+
+.boxFormLogin > * {
+    margin: 10px 0;
 }
 
 .boxImgBackground {
@@ -51,10 +56,3 @@
     height: clamp(100%, 100%, 100%);
     object-fit: cover;
 }
-
-
-
-
-/* .boxFormLogin input[type="password"] {
-    background-color: ;
-} */

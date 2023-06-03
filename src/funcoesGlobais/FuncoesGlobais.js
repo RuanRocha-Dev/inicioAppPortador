@@ -1,5 +1,3 @@
-/* eslint-disable no-redeclare */
-/* eslint-disable no-unused-vars */
 function validarCPF(cpf) {
     cpf = cpf.replace(/[^\d]+/g, '');
     
@@ -51,4 +49,15 @@ function formatarCPF(cpf) {
     cpf = cpf.replace(/\D/g, '');
     cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
     return cpf;
+}
+
+function validaSenhaComplexa (senha) {
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    if (regex.test(senha)) {
+        return true;
+    } else {
+        return false;
+    }
+
 }
