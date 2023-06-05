@@ -1,4 +1,4 @@
-function validarCPF(cpf) {
+export function validarCPF(cpf) {
     cpf = cpf.replace(/[^\d]+/g, '');
     
     if(cpf == '') {
@@ -45,13 +45,13 @@ function validarCPF(cpf) {
     return true;
 }
 
-function formatarCPF(cpf) {
+export function formatarCPF(cpf) {
     cpf = cpf.replace(/\D/g, '');
     cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
     return cpf;
 }
 
-function validaSenhaComplexa (senha) {
+export function validaSenhaComplexa (senha) {
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
     if (regex.test(senha)) {
@@ -59,5 +59,14 @@ function validaSenhaComplexa (senha) {
     } else {
         return false;
     }
+}
 
+export function soNumeros (string) {
+    var numeros = "";
+    for (var i = 0; i < string.length; i++) {
+        if (!isNaN(string[i])) {
+        numeros += string[i];
+        }
+    }
+    return numeros;
 }

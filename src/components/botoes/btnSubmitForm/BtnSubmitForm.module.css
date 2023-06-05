@@ -5,5 +5,5 @@
     color: var(--corSecundaria);
     background-color: var(--corPrimaria);
     border-radius: var(--borderRadiusDefault);
-    opacity: .7;
+    opacity: .9;
 }

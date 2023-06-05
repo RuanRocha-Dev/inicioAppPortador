@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import style from './InputCpf.module.css';
+import { formatarCPF } from "../../../funcoesGlobais/FuncoesGlobais";
 
 export function InputCpf (props) {
     let [cpf, setCpf] = useState('');
@@ -12,8 +13,8 @@ export function InputCpf (props) {
 
     return (
         <div className={style.container}>
-            <input type="text" name='cpf' id="cpf" onChange={(event) => {props.functionChange(event); formatandoCpf(event)}} value={cpf} maxLength='11' required/>
-            <label htmlFor="cpf" className={style.labelName}>
+            <input type="text" id="cpfField" onChange={(event) => {(props.functionChange != undefined ? props.functionChange(event) : ''); formatandoCpf(event)}} value={cpf} maxLength='11' inputMode='numeric' required/>
+            <label htmlFor="Cpf" className={style.labelName}>
                 <span className={style.contentName}> CPF </span>
             </label>
         </div>

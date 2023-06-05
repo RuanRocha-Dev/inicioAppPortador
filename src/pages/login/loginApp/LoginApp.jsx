@@ -1,42 +1,56 @@
-import React from 'react';
+import { React, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { InputCpf } from "../../../components/inputs/inputCpf/InputCpf";
 import { InputSenhaComplexa } from '../../../components/inputs/inputSenhaComplexa/InputSenhaComplexa';
 import { BtnSubmitForm } from '../../../components/botoes/btnSubmitForm/BtnSubmitForm';
+import { Modal } from '../../../utils/modal/Modal';
+
+import { soNumeros } from '../../../funcoesGlobais/FuncoesGlobais';
 
 import style from './LoginApp.module.css';
 
 export function LoginApp () {
     const navigateTo = useNavigate();
-    let cpf = '';
-    let senha = '';
+    let [conteudoModal, setconteudoModal] = useState('');
+    let [abreModal, setAbreModal] = useState(false);
 
-    function getValueCpf (el) {
-        cpf = el.target.value;
-    }
-    
-    function getValueSenha (el) {
-        senha = el.target.value;
-    }
-
-    function verifica (el) {
-        let btn = el.target;
+    function verifica () {
         const cfpLogin = '10186444907';
         const senhaLogin = '#Oloko123';
 
-        if(cpf == cfpLogin && senha == senhaLogin ) {
-            navigateTo('/home');
-        } else {
-            btn.style.border = '2px solid red';
-            btn.disabled = 'disabled';
-            
-            setTimeout(() => {
-                btn.style.border = '';
-                btn.disabled = '';
-            }, 2000);
+        const cpfField = soNumeros(document.querySelector('#cpfField').value);
+        const senhaField = document.querySelector('#senhaField').value;
+
+        if (cpfField == '' && senhaField == '') {
+            conteudoModal = 'Prencha os campos CPF e SENHA';
+            setconteudoModal(conteudoModal);
+            setAbreModal(true);
+            return false;
         }
         
+        if(cpfField == '') {
+            conteudoModal = 'Prencha o campo CPF';
+            setconteudoModal(conteudoModal);
+            setAbreModal(true);
+            return false;
+        } 
+        if ( senhaField == '' ) {
+            conteudoModal = 'Prencha o campo SENHA';
+            setconteudoModal(conteudoModal);
+            setAbreModal(true);
+            return false;
+        }
+        
+        if(cpfField == cfpLogin && senhaField == senhaLogin ) {
+            navigateTo('/home');
+            return false;
+        } else {
+            conteudoModal = 'Usuário ou senha incorretos';
+            setconteudoModal(conteudoModal);
+            setAbreModal(true);
+            return false;
+        }
     }
 
     return (
@@ -46,8 +60,8 @@ export function LoginApp () {
                     <img src="https://www.zaztech.com.br/wp-content/uploads/2022/09/Sem-Titulo-1-1.png" />
                 </div>
                 <div className={style.boxFormLogin}>
-                    <InputCpf functionChange={getValueCpf}/>
-                    <InputSenhaComplexa functionChange={getValueSenha} />
+                    <InputCpf />
+                    <InputSenhaComplexa />
                     <BtnSubmitForm tituloBtn="LOGAR" functionOnclick={verifica} />
                     <BtnSubmitForm tituloBtn="CADASTRE-SE" />
                 </div>
@@ -56,7 +70,13 @@ export function LoginApp () {
                 <img src="https://i.pinimg.com/236x/da/9a/56/da9a5680ca2741b1c06817b7ed785f1f.jpg" alt="" />
             </div>
 
-
+            {abreModal && (
+                <Modal
+                    conteudoModal={conteudoModal}
+                    textoBtn="Ok"
+                    funcaoClickBtn={setAbreModal}
+                />
+            )}
         </div>
     )
 }
