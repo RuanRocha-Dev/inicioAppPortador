@@ -45,6 +45,16 @@
     margin: 10px 0;
 }
 
+.boxBtnsSecondary {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
 .boxImgBackground {
     width: clamp(100%, 100%, 100%);
     height: clamp(100%, 100%, 100%);
@@ -56,4 +66,14 @@
     width: clamp(100%, 100%, 100%);
     height: clamp(100%, 100%, 100%);
     object-fit: cover;
+}
+
+.btnSecondary {
+    width: 45%;
+    height: 50px;
+    border: none;
+    color: var(--corSecundaria);
+    background-color: var(--corPrimaria);
+    border-radius: var(--borderRadiusDefault);
+    opacity: .9;
 }

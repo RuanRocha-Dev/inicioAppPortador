@@ -15,7 +15,7 @@ export function LoginApp () {
     let [conteudoModal, setconteudoModal] = useState('');
     let [abreModal, setAbreModal] = useState(false);
 
-    function verifica () {
+    function verificaLogin () {
         const cfpLogin = '10186444907';
         const senhaLogin = '#Oloko123';
 
@@ -53,6 +53,17 @@ export function LoginApp () {
         }
     }
 
+    function abreModalRecuperacaoSenha () {
+        conteudoModal = `Você receberá um e-mail com as instruções para trocar de senha. \n\n Toque no botão abaixo para confirmar.`;
+        setconteudoModal(conteudoModal);
+        setAbreModal(true);
+        return false;
+    }
+
+    function vai () {
+        navigateTo('/sucessoEnvioRedefinicaoSenha');
+    }
+
     return (
         <div className={style.containerLogin}>
             <div className={style.containerLogoAndInputs}>
@@ -62,8 +73,11 @@ export function LoginApp () {
                 <div className={style.boxFormLogin}>
                     <InputCpf />
                     <InputSenhaComplexa />
-                    <BtnSubmitForm tituloBtn="LOGAR" functionOnclick={verifica} />
-                    <BtnSubmitForm tituloBtn="CADASTRE-SE" />
+                    <BtnSubmitForm tituloBtn="LOGAR" functionOnclick={verificaLogin} />
+                    <div className={style.boxBtnsSecondary}>
+                        <input type="button" className={style.btnSecondary} value="Cadastre-se" />
+                        <input type="button" className={style.btnSecondary} value="Recuperar Senha" onClick={abreModalRecuperacaoSenha}/>
+                    </div>
                 </div>
             </div>
             <div className={style.boxImgBackground}>
@@ -74,7 +88,7 @@ export function LoginApp () {
                 <Modal
                     conteudoModal={conteudoModal}
                     textoBtn="Ok"
-                    funcaoClickBtn={setAbreModal}
+                    funcaoClickBtn={vai}
                 />
             )}
         </div>

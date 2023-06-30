@@ -1,8 +1,15 @@
 // import { useEffect, useRef } from 'react';
-
 import style from './Modal.module.css';
 
 export function Modal (props) {
+    
+    function fechaModal (el) {
+        const element = el.target;
+        if(element.classList.contains('animate__animated')) {
+            props.funcaoClickBtn(false);
+        }
+    }
+
     // const thisRef = useRef(null);
 
     // useEffect(() => {
@@ -11,10 +18,10 @@ export function Modal (props) {
     // })    USAR ESSE CÓDIGO COMENTADO SE CASO QUISER COLCOAR UMA ANIMAÇÃO DE SAIDA DO MODAL
 
     return (
-        <div className={`${style.containerModal} animate__animated animate__faster animate__slideInUp`}>
+        <div onClick={fechaModal} className={`${style.containerModal} animate__animated animate__faster animate__slideInUp`}>
             <div className={style.boxModal}>
                 <p> {props.conteudoModal} </p>
-                <input type="button" value={props.textoBtn} onClick={(event) => props.funcaoClickBtn(false) }/>
+                <input type="button" value={props.textoBtn} onClick={() => props.funcaoClickBtn() }/>
             </div>
         </div>
     )
