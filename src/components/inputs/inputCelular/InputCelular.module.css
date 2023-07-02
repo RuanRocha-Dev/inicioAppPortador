@@ -38,28 +38,21 @@
     transition: transform 0.3s ease;
 }
 
-.contentName {
+.contentCelular {
     position: absolute;
     left: 0px;
     bottom: 5px;
     transition: all 0.3s ease;
 }
 
-.container input:focus + .labelName .contentName,
-.container input:valid + .labelName .contentName {
+.container input:focus + .labelCelular .contentCelular,
+.container input:valid + .labelCelular .contentCelular {
     transform: translateY(-150%);
     font-size: 14px;
     color: var(--active-color);
 }
 
-.container input:focus + .labelName::after,
-.container input:valid + .labelName::after {
+.container input:focus + .labelCelular::after,
+.container input:valid + .labelCelular::after {
     transform: translateX(0%);
-}
-
-.container i {
-    position: absolute;
-    top: 50%;
-    right: 5%;
-    z-index: 9999;
 }

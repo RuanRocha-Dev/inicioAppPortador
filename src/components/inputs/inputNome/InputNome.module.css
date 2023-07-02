@@ -56,10 +56,3 @@
 .container input:valid + .labelName::after {
     transform: translateX(0%);
 }
-
-.container i {
-    position: absolute;
-    top: 50%;
-    right: 5%;
-    z-index: 9999;
-}

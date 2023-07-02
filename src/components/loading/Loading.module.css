@@ -1,0 +1,16 @@
+.container {
+    width: clamp(100vw, 100vw, 100vw);
+    height: clamp(100vh, 100vh, 100vh);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: #000;
+    opacity: .7;
+    z-index: 2147483647;
+}
+
+.boxLoading {
+    width: 55vw;
+    height: 55vw;
+} 

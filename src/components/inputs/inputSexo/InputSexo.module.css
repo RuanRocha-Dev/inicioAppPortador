@@ -1,0 +1,25 @@
+.container {
+    width: 100%;
+    height: 50px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid #000;
+}
+
+.container select {
+    width: 100%;
+    height: 100%;
+    color: var(--corTexto);
+    background-color: transparent;
+    padding-top: 20px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+}
+
+.contentCelular {
+    position: absolute;
+    left: 0px;
+    bottom: 5px;
+    transition: all 0.3s ease;
+}

@@ -8,6 +8,7 @@ import { CartaoVirtual } from './pages/cartaoVirtual/CartaoVirtual';
 import { Carteira } from './pages/carteira/Carteira';
 import { LoginApp } from './pages/login/loginApp/LoginApp.jsx';
 import { SucessoEnvioRedefinicaoSenha } from './pages/sucessoEnvioRedefinicaoSenha/sucessoEnvioRedefinicaoSenha.jsx';
+import { Cadastro } from './pages/cadastro/Cadastro.jsx';
 
 const routers = createBrowserRouter([
   { path: '/', 
@@ -18,6 +19,7 @@ const routers = createBrowserRouter([
       { path: '/cartao-virtual', element: <CartaoVirtual /> },
       { path: '/carteira', element: <Carteira /> },
       { path: '/sucessoEnvioRedefinicaoSenha', element: <SucessoEnvioRedefinicaoSenha /> },
+      { path: '/cadastro', element: <Cadastro /> },
     ] 
   }
 ]);

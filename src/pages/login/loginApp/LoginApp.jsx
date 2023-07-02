@@ -1,3 +1,5 @@
+import style from './LoginApp.module.css';
+
 import { React, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -5,24 +7,25 @@ import { InputCpf } from "../../../components/inputs/inputCpf/InputCpf";
 import { InputSenhaComplexa } from '../../../components/inputs/inputSenhaComplexa/InputSenhaComplexa';
 import { BtnSubmitForm } from '../../../components/botoes/btnSubmitForm/BtnSubmitForm';
 import { Modal } from '../../../utils/modal/Modal';
+import { Loading } from '../../../components/loading/Loading';
 
 import { soNumeros } from '../../../funcoesGlobais/FuncoesGlobais';
 
-import style from './LoginApp.module.css';
-
 export function LoginApp () {
     const navigateTo = useNavigate(); 
+
     let [conteudoModal, setconteudoModal] = useState('');
     let [abreModal, setAbreModal] = useState(false);
     let [ConteudoModalConfirmcaoSenha, setConteudoModalConfirmcaoSenha] = useState('');
     let [abreModalConfimacaoSenha, setAbreModalConfimacaoSenha] = useState(false);
+    let [loading, setLoading] = useState(false);
 
     function verificaLogin () {
         const cfpLogin = '10186444907';
-        const senhaLogin = '#Oloko123';
+        const senhaLogin = '#Teste123';
 
-        const cpfField = soNumeros(document.querySelector('#cpfField').value);
-        const senhaField = document.querySelector('#senhaField').value;
+        const cpfField = soNumeros(document.querySelectorAll('#containerLogin input')[0].value);
+        const senhaField = document.querySelectorAll('#containerLogin input')[1].value;
 
         if (cpfField == '' && senhaField == '') {
             conteudoModal = 'Prencha os campos CPF e SENHA';
@@ -63,28 +66,36 @@ export function LoginApp () {
     }
 
     function abreTelaConfirmacaoRedefinicaoSenha () {
+        setLoading(true);
+        
         setTimeout(() => {
             if (true) {
-                navigateTo('/sucessoEnvioRedefinicaoSenha?status=error'); // No caso de erro passar o paramtro status para mostrar a tela de erro de envio de email, se n passar nada vai para a tela de email enviado com sucesso
+                setLoading(false);
+                navigateTo('/sucessoEnvioRedefinicaoSenha?status=error'); // No caso de erro passar o parametro status para mostrar a tela de erro de envio de email, se n passar nada vai para a tela de email enviado com sucesso
             } else {
+                setLoading(false);
                 navigateTo('/sucessoEnvioRedefinicaoSenha');
             }
-        }, 2000);
+        }, 4000);
 
     }
 
+    function abreCadastro () {
+        navigateTo('/cadastro');
+    }
+
     return (
-        <div className={style.containerLogin}>
+        <div className={style.containerLogin} id='containerLogin'>
             <div className={style.containerLogoAndInputs}>
                 <div className={style.boxImg}>
                     <img src="https://www.zaztech.com.br/wp-content/uploads/2022/09/Sem-Titulo-1-1.png" />
                 </div>
                 <div className={style.boxFormLogin}>
                     <InputCpf />
-                    <InputSenhaComplexa />
+                    <InputSenhaComplexa textSenha="SENHA" />
                     <BtnSubmitForm tituloBtn="LOGAR" functionOnclick={verificaLogin} />
                     <div className={style.boxBtnsSecondary}>
-                        <input type="button" className={style.btnSecondary} value="Cadastre-se" />
+                        <input type="button" className={style.btnSecondary} value="Cadastre-se" onClick={abreCadastro}/>
                         <input type="button" className={style.btnSecondary} value="Recuperar Senha" onClick={abreModalRecuperacaoSenha}/>
                     </div>
                 </div>
@@ -107,6 +118,10 @@ export function LoginApp () {
                     textoBtn="Ok"
                     funcaoClickBtn={() => abreTelaConfirmacaoRedefinicaoSenha()}
                 />
+            )}
+
+            {loading && (
+                <Loading />
             )}
         </div>
     )

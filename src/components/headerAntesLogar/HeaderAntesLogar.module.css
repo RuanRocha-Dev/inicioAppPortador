@@ -1,0 +1,24 @@
+.container {
+    width: 100vw;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background-color: var(--corBackgroundPage);
+}
+
+.container > div {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 20%;
+    left: 25px;
+    font-size: 1.4em;
+    /* z-index: 100; */
+}

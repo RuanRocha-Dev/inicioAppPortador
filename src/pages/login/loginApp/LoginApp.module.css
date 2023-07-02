@@ -38,7 +38,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-color: aquamarine; */
+}
+
+.boxFormLogin i {
+    color: var(--corTexto);
 }
 
 .boxFormLogin > * {

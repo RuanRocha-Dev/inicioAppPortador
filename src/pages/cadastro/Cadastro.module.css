@@ -1,0 +1,23 @@
+.container {
+    width: 85%;
+    margin: auto;
+    padding-top: 40px;
+    padding-bottom: 15px;
+}
+
+.container > *:not(header) {
+    margin: 30px 0;
+}
+
+.container *:not(input[type="button"]) {
+    color: #000 !important;
+    border-color: #000 !important;
+}
+
+.container select {
+    background-color: var(--corBackgroundPage) !important;
+}
+
+.container ul {
+    font-size: 1em;
+}
