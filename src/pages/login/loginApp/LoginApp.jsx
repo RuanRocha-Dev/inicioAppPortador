@@ -11,9 +11,11 @@ import { soNumeros } from '../../../funcoesGlobais/FuncoesGlobais';
 import style from './LoginApp.module.css';
 
 export function LoginApp () {
-    const navigateTo = useNavigate();
+    const navigateTo = useNavigate(); 
     let [conteudoModal, setconteudoModal] = useState('');
     let [abreModal, setAbreModal] = useState(false);
+    let [ConteudoModalConfirmcaoSenha, setConteudoModalConfirmcaoSenha] = useState('');
+    let [abreModalConfimacaoSenha, setAbreModalConfimacaoSenha] = useState(false);
 
     function verificaLogin () {
         const cfpLogin = '10186444907';
@@ -53,15 +55,22 @@ export function LoginApp () {
         }
     }
 
+
     function abreModalRecuperacaoSenha () {
-        conteudoModal = `Você receberá um e-mail com as instruções para trocar de senha. \n\n Toque no botão abaixo para confirmar.`;
-        setconteudoModal(conteudoModal);
-        setAbreModal(true);
+        setConteudoModalConfirmcaoSenha(`Você receberá um e-mail com as instruções para trocar de senha. \n\n Toque no botão abaixo para confirmar.`);
+        setAbreModalConfimacaoSenha(true);
         return false;
     }
 
-    function vai () {
-        navigateTo('/sucessoEnvioRedefinicaoSenha');
+    function abreTelaConfirmacaoRedefinicaoSenha () {
+        setTimeout(() => {
+            if (true) {
+                navigateTo('/sucessoEnvioRedefinicaoSenha?status=error'); // No caso de erro passar o paramtro status para mostrar a tela de erro de envio de email, se n passar nada vai para a tela de email enviado com sucesso
+            } else {
+                navigateTo('/sucessoEnvioRedefinicaoSenha');
+            }
+        }, 2000);
+
     }
 
     return (
@@ -88,7 +97,15 @@ export function LoginApp () {
                 <Modal
                     conteudoModal={conteudoModal}
                     textoBtn="Ok"
-                    funcaoClickBtn={vai}
+                    funcaoClickBtn={setAbreModal}
+                />
+            )}
+
+            {abreModalConfimacaoSenha && (
+                <Modal
+                    conteudoModal={ConteudoModalConfirmcaoSenha}
+                    textoBtn="Ok"
+                    funcaoClickBtn={() => abreTelaConfirmacaoRedefinicaoSenha()}
                 />
             )}
         </div>

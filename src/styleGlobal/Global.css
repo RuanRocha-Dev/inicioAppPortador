@@ -18,4 +18,5 @@
 
 body {
     position: relative;
+    background-color:var(--corBackgroundPage);
 }

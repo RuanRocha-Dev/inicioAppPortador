@@ -11,7 +11,7 @@ import { Header } from './components/header/Header';
 function App() {
   const location = useLocation();
   
-  if(location.pathname == '/') {
+  if(location.pathname == '/' || location.pathname.includes('/sucessoEnvioRedefinicaoSenha')) {
     return (
       <>
         <main className={style.containerOutletTelasLogin}>
