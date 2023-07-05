@@ -9,6 +9,7 @@ import { Carteira } from './pages/carteira/Carteira';
 import { LoginApp } from './pages/login/loginApp/LoginApp.jsx';
 import { SucessoEnvioRedefinicaoSenha } from './pages/sucessoEnvioRedefinicaoSenha/sucessoEnvioRedefinicaoSenha.jsx';
 import { Cadastro } from './pages/cadastro/Cadastro.jsx';
+import { RedefinicaoDeDispositivo } from './pages/redefinicaoDeDispositivo/RedefinicaoDeDispositivo.jsx';
 
 const routers = createBrowserRouter([
   { path: '/', 
@@ -20,6 +21,7 @@ const routers = createBrowserRouter([
       { path: '/carteira', element: <Carteira /> },
       { path: '/sucessoEnvioRedefinicaoSenha', element: <SucessoEnvioRedefinicaoSenha /> },
       { path: '/cadastro', element: <Cadastro /> },
+      { path: '/redefinicaoDeDispositivo', element: <RedefinicaoDeDispositivo /> },
     ] 
   }
 ]);

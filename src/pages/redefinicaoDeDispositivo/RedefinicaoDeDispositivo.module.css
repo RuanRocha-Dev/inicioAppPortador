@@ -1,0 +1,26 @@
+.container {
+    width: 85%;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container h4 {
+    width: 100%;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.container label, .container input[type="email"] {
+    border-color: #000 !important;
+    color: #000 !important;
+}
+.container label {
+    color: #000 !important;
+}
