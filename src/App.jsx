@@ -6,12 +6,20 @@ import { MenuBottomHome } from './components/menuBottomHome/MenuBottomHome';
 import { SideBar } from './components/sideBar/SideBar';
 import { Header } from './components/header/Header';
 
+const listaTelasSemLogar = [
+  '/',
+  '/sucessoEnvioRedefinicaoSenha',
+  '/cadastro',
+  '/redefinicaoDeDispositivo',
+  '/envioEmailRedefinicaoDispositivo',
+  '/saudacaoCadastro'
+]
 
 
 function App() {
   const location = useLocation();
   
-  if(location.pathname == '/' || location.pathname.includes('sucessoEnvioRedefinicaoSenha') || location.pathname.includes('cadastro') || location.pathname.includes('redefinicaoDeDispositivo')) {
+  if(listaTelasSemLogar.includes(location.pathname)) {
     return (
       <>
         <main className={style.containerOutletTelasLogin}>

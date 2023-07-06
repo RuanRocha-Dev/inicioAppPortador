@@ -1,6 +1,7 @@
 import style from './RedefinicaoDeDispositivo.module.css';
 
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { HeaderAntesLogar } from '../../components/headerAntesLogar/HeaderAntesLogar';
 import { BtnSubmitForm } from '../../components/botoes/btnSubmitForm/BtnSubmitForm';
@@ -11,6 +12,8 @@ import { Modal } from '../../utils/modal/Modal';
 export function RedefinicaoDeDispositivo () {
     let [abreModal, setAbreModal] = useState(false);
     let [disabled, setdisabled] = useState(true);
+
+    const navigateTo = useNavigate(); 
 
 
     function validaTipoEmail (el) { 
@@ -35,12 +38,14 @@ export function RedefinicaoDeDispositivo () {
         if(inputEmail.value != emailFake) {
             setAbreModal(true);
             return false;
+        } else {
+            navigateTo('/envioEmailRedefinicaoDispositivo');
         }
     }
 
     return (
         <>
-            <HeaderAntesLogar textHeader="EMAIL ENVIADO" />
+            <HeaderAntesLogar textHeader="REDEFINIÇÃO DE DISPOSITIVO" />
             <div className={style.container}>
                 <Player 
                     src="https://assets1.lottiefiles.com/packages/lf20_1idqu1ac.json"  

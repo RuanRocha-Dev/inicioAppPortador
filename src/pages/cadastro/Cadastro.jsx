@@ -1,5 +1,7 @@
 import style from './Cadastro.module.css';
 
+import { useNavigate } from 'react-router-dom';
+
 import { HeaderAntesLogar } from '../../components/headerAntesLogar/HeaderAntesLogar';
 import { InputNome } from '../../components/inputs/inputNome/InputNome';
 import { InputEmail } from '../../components/inputs/inputEmail/InputEmail';
@@ -10,6 +12,8 @@ import { InputSenhaComplexa } from '../../components/inputs/inputSenhaComplexa/I
 import { BtnSubmitForm } from '../../components/botoes/btnSubmitForm/BtnSubmitForm';
 
 export function Cadastro () {
+    const navigateTo = useNavigate();
+
     return (
         <div className={style.container}>
             <HeaderAntesLogar textHeader="CADASTRO" />
@@ -32,7 +36,7 @@ export function Cadastro () {
                 <li> Ao menos um caractere especial (simbolos) </li>
             </ul>
             <InputSenhaComplexa textSenha="Repita a senha" />
-            <BtnSubmitForm tituloBtn="Cadastrar" />
+            <BtnSubmitForm tituloBtn="CADASTRAR" functionOnclick={() => navigateTo('/saudacaoCadastro')} />
         </div>
     )
 }

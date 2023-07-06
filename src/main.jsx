@@ -10,6 +10,8 @@ import { LoginApp } from './pages/login/loginApp/LoginApp.jsx';
 import { SucessoEnvioRedefinicaoSenha } from './pages/sucessoEnvioRedefinicaoSenha/sucessoEnvioRedefinicaoSenha.jsx';
 import { Cadastro } from './pages/cadastro/Cadastro.jsx';
 import { RedefinicaoDeDispositivo } from './pages/redefinicaoDeDispositivo/RedefinicaoDeDispositivo.jsx';
+import { EnvioEmailRedefinicaoDispositivo } from './pages/envioEmailRedefinicaoDispositivo/EnvioEmailRedefinicaoDispositivo.jsx';
+import { SaudacaoCadastro } from './pages/saudacaoCadastro/SaudacaoCadastro.jsx';
 
 const routers = createBrowserRouter([
   { path: '/', 
@@ -22,6 +24,8 @@ const routers = createBrowserRouter([
       { path: '/sucessoEnvioRedefinicaoSenha', element: <SucessoEnvioRedefinicaoSenha /> },
       { path: '/cadastro', element: <Cadastro /> },
       { path: '/redefinicaoDeDispositivo', element: <RedefinicaoDeDispositivo /> },
+      { path: '/envioEmailRedefinicaoDispositivo', element: <EnvioEmailRedefinicaoDispositivo /> },
+      { path: '/saudacaoCadastro', element: <SaudacaoCadastro /> },
     ] 
   }
 ]);
